@@ -136,6 +136,7 @@ header{
 
 .news-container li{
     width: 200px;
+    height: 150px;
     text-align: center;
     padding: 10px;
     margin-right: 20px;
@@ -157,55 +158,18 @@ header{
     text-shadow: 0 2px 5px rgba(255,255,255,0.5);
 }
 
+.news-container img{
+    width: 200px;
+    height: 150px;
+} 
+
 .news-container a:hover{
     opacity: 0.8;
-}
-
-.news-container .news-image{
-    color: #fff;
 }
 
 .news-container li p{
     font-size: 20px;
     color: #fff;
-    font-weight: bold;
-}
-
-.news-container li:nth-child(1){
-    width: 200px;
-    height: 150px;
-    margin-right: 20px;
-    background-image: url(image/nct-logo.jpg);
-    background-repeat: none;
-    background-size: cover;
-    background-position: center;
-}
-.news-container li:nth-child(2){
-    width: 200px;
-    height: 150px;
-    margin-right: 20px;
-    background-image: url(image/Youtube-logo.jpg);
-    background-repeat: none;
-    background-size: cover;
-    background-position: center;
-}
-.news-container li:nth-child(3){
-    width: 200px;
-    height: 150px;
-    margin-right: 20px;
-    background-image: url(image/Twitter-logo.jpg);
-    background-repeat: none;
-    background-size: cover;
-    background-position: center;
-}
-.news-container li:nth-child(4){
-    width: 200px;
-    height: 150px;
-    margin-right: 20px;
-    background-image: url(image/Instagram-logo.jpeg);
-    background-repeat: none;
-    background-size: cover;
-    background-position: center;
 }
 
 .news-container li:last-child{
@@ -213,7 +177,7 @@ header{
 }
 
 .video{
-    background-image: url(image/NCTzen.jpg);
+    background-image: url("image/NCTzen.jpg");
     background-repeat: none;
     background-size: cover;
     background-position: center;
@@ -275,36 +239,85 @@ header{
     text-shadow: rgba(255,255,255,0.5);
 }
 
-.history-container ul{
-    display: flex;
-    justify-content: center;
-}
-
-.history-container li{
+.carousel {
+    position:relative;
     width: 280px;
-    text-align: center;
-    background-color: #eee;
-    padding: 10px;
-    margin-right: 20px;
-    border-radius: 3px;
-}
-
-.history-container .history-image{
-    width: 280px;
-    height: 280px;
-    margin: 0 auto;
-    background-color: #ddd;
-}
-
-.history-container li:last-child{
-    margin-right: 0;
-}
-
-.history-container li p{
-    padding-top: 10px;
-    font-size: 16px;
-}
-
+    border:10px solid white;
+    margin:20px auto;
+    box-shadow:0px 0px 40px #000;
+  }
+  .carousel > img {
+    display:none;
+    width:100%;
+  }
+  .carousel > input {
+    position:absolute;
+    left:-9999px;
+  }
+  .carousel > input:checked + label + img {
+    display:block;
+  }
+  
+  .carousel > label,
+  .carousel > input:checked ~ label ~ label ~ label ~ label {
+    display:none;
+  }
+  .carousel > input:checked + label {
+    display:block;
+    left:0;
+  }
+  .carousel > input:checked ~ label ~ label ~ label {
+    display:block;
+    right:0;
+  }
+  
+  .carousel > label {
+    position:absolute;
+    top:0;
+    width:25%;
+    height:100%;
+    visibility:hidden;
+  }
+  .carousel > label:before {
+    content:'';
+    display:block;
+    position:absolute;
+    width:100%;
+    height:100%;
+    visibility:visible;
+  }
+  .carousel > label:after {
+    display:block;
+    position:absolute;
+    top:50%;
+    width:25px;
+    height:25px;
+    line-height:22px;
+    margin:-15px 10px 0 10px;
+    background-color:black;
+    color:white;
+    font-family:'Arial';
+    font-weight:bold;
+    font-size:18px;
+    text-align:center;
+    visibility:hidden;
+    border:2px solid white;
+    border-radius:20px;
+    box-shadow:0 3px 4px black;
+  }
+  .carousel > label:hover:after {
+    visibility:visible;
+  }
+  
+  .carousel > input:checked + label:after {
+    left:0;
+    content:'\00AB';
+  }
+  .carousel > input:checked ~ label ~ label ~ label:after {
+    right:0;
+    content:'\00BB';
+  }
+  
 .access{
     background-image: url("image/Rehearsal.jpg");
     background-repeat: none;
@@ -345,3 +358,5 @@ footer{
     text-align: center;
     font-size: 12px;
 }
+
+ 
